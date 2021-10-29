@@ -5,6 +5,10 @@
 # will also scrozzle 01_temp.bin, 02_temp_pcm.bin, 03_temp.bin,
 # 02_temp_quiet_pcm.bin.
 
+# optional second argument: volume divisor
+
+#set -x
+
 mergevgm() {
   rm -f temp.vgm
   while [ "$#" -gt 1 ]; do
@@ -17,7 +21,7 @@ mergevgm() {
 ./get-header < "$1" > 01_temp.bin
 ./get-pcm < "$1" > 02_temp_pcm.bin
 ./get-remainder < "$1" > 03_temp.bin
-./shiftdown < 02_temp_pcm.bin > 02_temp_quiet_pcm.bin
+./shiftdown "$2" < 02_temp_pcm.bin > 02_temp_quiet_pcm.bin
 
 mergevgm 01_temp.bin 02_temp_quiet_pcm.bin 03_temp.bin "$(basename "$1")"
 

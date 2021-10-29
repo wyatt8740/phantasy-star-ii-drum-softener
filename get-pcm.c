@@ -66,7 +66,7 @@ int dump()
       i++;
     }
   }*/
-  fprintf(stderr, "size is 0x%08x (base 10: %lu)\n", (unsigned long)siz, (unsigned long)siz);
+/*  fprintf(stderr, "size is 0x%08x (base 10: %lu)\n", (unsigned long)siz, (unsigned long)siz);*/
   uint32_t iterations=0;
   while((!feof(stdin)) && iterations < siz) {
     putchar(getchar());
