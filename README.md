@@ -28,16 +28,29 @@ This repository contains C, shell scripts, and assembly to make:
 * Phantasy Star II game modifications to make the US release use the Japanese 
   sound engine, and vice versa
   
-It does not include all the code and assets necessary to make a binary copy of
-the game; If you want that, you should look for the disassembly project for
-this game. That said, it does contain some files that I replaced/superimposed
-on top of the disassembly project to make my stuff work. I don't think I wrote
-a single line of actual assembly for this unless you count `db` (define byte),
-although I did  do some work in ASL assembler macros to make configuration
-options for the things I wanted to do.
+It also contains my recently completed save file for Phantasy Star II, which
+has all sound test entries unlocked. The first save slot starts you in the
+town where the sound test guy (the musician, Ustvestia) is located. By
+the way, this save data appears to work under the Japanese version of the
+game as well, albeit with garbage character names.
+  
+This repository does not include all the code and assets necessary to make a
+binary copy of the game; If you want that, you should look for the disassembly
+project for this game. That said, it does contain some files that I
+replaced/superimposed on top of the disassembly project to make my stuff work.
+I don't think I wrote a single line of actual assembly for this unless you
+count `db` (define byte), although I did  do some work in ASL assembler macros
+to make configuration options for the things I wanted to do.
 
 For making a game, you want the files under `ps2disasm`. For the tools I used
 to manipulate the PCM tracks, you should look under the `ps2disasm/tools`
 directory.
 
-For VGM stuff, you should look under `vgm_proc`.
+For VGM stuff, you should look under `vgm_proc`. Note that the VGM stuff
+is less advanced than the stuff for the disassembly, and doesn't necessarily
+work quite as well. For instance, the game disassembly based tools can be used
+to individually reduce the volume of specific samples; the VGM ones are older
+and apply a flat reduction to all samples at once unless you do extra work.
+
+I might fix this later, but the VGM's are slightly more annoying to work with
+for this. We'll see if I get motivated enough to do it. Pull requests welcome.
