@@ -4,7 +4,7 @@
 /* after pcm is dumped, run this to seek to end of PCM and dump out the rest of
    the file from there. */
 int pcm_seek_to_end();
-int dump();
+void dump();
 int main(int argc, char **argv)
 {
   /* first seek to beginning of PCM section */
@@ -54,10 +54,9 @@ int pcm_seek_to_end()
   return 0;
 }
 
-int dump()
+void dump()
 {
   unsigned int c=0;
-  unsigned int d=0;
   while((c=getchar()) != EOF) {
     putchar(c);
   }

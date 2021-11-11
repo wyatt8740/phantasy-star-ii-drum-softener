@@ -1,6 +1,11 @@
 Makes the Japanese release of Phantasy Star II's drums quieter, to save Nei's
 delicate Numan ears.
 
+Also provides for making an english game that uses the Japanese version's
+sound engine, or vice versa (The game has totally different engines in the
+different releases, and this results in some subtle sound differences.
+Additionally, the drum samples differ).
+
 This is code I wrote as fast as possible to "just get the job done," so it's a
 bit brittle and weird. It has minimal training wheels or guard rails. You will
 want to be careful using these.
@@ -14,18 +19,25 @@ to automate the process I did manually on the first file I tried this with.
 I already had the code for changing the sample volume written, and so I sort
 of bolted stuff around that.
 
-You want to run `process.sh`, though.
+This repository contains C, shell scripts, and assembly to make:
 
-Do something like:
+* Phantasy Star II (Japan) .VGM rips with quieter snare drums
 
-    ./process.sh jp/05\ -\ Pleasure.vgm 0.33
-    
-…to output a file in your current directory called `05 - Pleasure.vgm`, with
-the amplitude of the drum samples multiplied by 1/3rd.
-    
-**NOTE: DO NOT PUT YOUR INPUT VGM FILES IN THE SAME DIRECTORY AS YOUR CURRENT
-ONE. IF YOU DO, THEY WILL BE ERASED OR OTHERWISE SCROZZLED.**
+* Phantasy Star II game modifications, to make the game itself use quieter drums
 
-License: LGPL. If you really want to use this for something and don't like
-LGPL, ask me and I might be willing to change it. I'm not too attached
-to LGPL.
+* Phantasy Star II game modifications to make the US release use the Japanese 
+  sound engine, and vice versa
+  
+It does not include all the code and assets necessary to make a binary copy of
+the game; If you want that, you should look for the disassembly project for
+this game. That said, it does contain some files that I replaced/superimposed
+on top of the disassembly project to make my stuff work. I don't think I wrote
+a single line of actual assembly for this unless you count `db` (define byte),
+although I did  do some work in ASL assembler macros to make configuration
+options for the things I wanted to do.
+
+For making a game, you want the files under `ps2disasm`. For the tools I used
+to manipulate the PCM tracks, you should look under the `ps2disasm/tools`
+directory.
+
+For VGM stuff, you should look under `vgm_proc`.

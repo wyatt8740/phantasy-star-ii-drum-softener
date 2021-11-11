@@ -1,0 +1,10 @@
+get-header
+get-pcm
+get-remainder
+shiftdown
+snare_only/
+vgm/
+ps2disasm/utils/correct_vol
+ps2disasm/utils/preamble
+ps2disasm/utils/remainder
+ps2disasm/utils/samplerip
